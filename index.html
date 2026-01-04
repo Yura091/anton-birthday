@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>С Днём Рождения, Антон! 🎉</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      color: #fff;
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.8em;
+      margin: 20px 0;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .birthday-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 25px;
+      margin: 20px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .birthday-card h2 {
+      color: #ffd700;
+      margin-top: 0;
+    }
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin: 15px 0;
+    }
+    button {
+      background: #ffd700;
+      color: #000;
+      border: none;
+      padding: 14px 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 15px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: all 0.3s;
+    }
+    button:hover {
+      background: #ffed4e;
+      transform: scale(1.05);
+    }
+    .hidden { display: none; }
+    .confetti {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="confetti" id="confetti"></div>
+
+  <div class="container">
+
+    <h1>🎂 С Днём Рождения, АНТОН! 🎉</h1>
+
+    <div class="birthday-card">
+      <h2>Поздравление №1: Официальное</h2>
+      <p>Антон, в этот день мы торжественно объявляем:<br>
+      <strong>Ты — человек года по версии твоих друзей.</strong><br>
+      Не «в номинации», а вообще — по жизни.</p>
+    </div>
+
+    <div class="birthday-card">
+      <h2>Поздравление №2: Научное</h2>
+      <p>По данным наблюдений за последние годы:<br>
+      • Юмор — 110%<br>
+      • Надёжность — ∞<br>
+      • Способность спасти вечер — гарантированно<br>
+      Поздравляем обладателя уникального гена «Антона» — он даётся только избранным.</p>
+    </div>
+
+    <div class="birthday-card">
+      <h2>Поздравление №3: Мемное</h2>
+      <p><strong>Когда Антон приходит на встречу:</strong><br>
+      Все: *ждут, что будет серьёзно*<br>
+      Антон: «Так, я принёс мандарины и одну шутку про боксёрский мешок»<br>
+      Все: *смеются до слёз*<br>
+      → Это не хаос. Это гений.</p>
+    </div>
+
+    <div class="birthday-card">
+      <h2>Поздравление №4: От сердца</h2>
+      <p>Антон, ты — тот самый друг, с которым можно молчать часами и не чувствовать неловкости.<br>
+      Тот, кто поддержит в трудную минуту — и не забудет потом пошутить, чтобы разрядить обстановку.<br>
+      Спасибо, что ты есть. Пусть в этом году будет:<br>
+      ✅ Здоровье — как у тигра<br>
+      ✅ Удача — как у кота в сапогах<br>
+      ✅ Деньги — как Wi-Fi: стабильно и без лимита<br>
+      ✅ А настроение — как у тебя в тот момент, когда ты понял, что это не шутка 😄</p>
+    </div>
+
+    <button id="moreBtn">🎁 Ещё одно поздравление?</button>
+
+    <div id="final" class="hidden birthday-card">
+      <h2>✨ И последнее, самое важное:</h2>
+      <p><strong>С Днём Рождения, брат!</strong><br>
+      Пусть каждый день будет таким же ярким, как сегодня.<br>
+      Пусть мечты — сбываются, планы — реализуются, а кофе — всегда будет горячим.<br>
+      А мы — рядом. Всегда.</p>
+      <p>С любовью и уважением,<br>
+      Твой лучший друг</p>
+    </div>
+
+  </div>
+
+  <script>
+    // Конфетти-анимация
+    function launchConfetti() {
+      const colors = ['#ff0', '#f00', '#0f0', '#00f', '#ff00ff', '#0ff'];
+      const confettiContainer = document.getElementById('confetti');
+      for (let i = 0; i < 150; i++) {
+        const piece = document.createElement('div');
+        piece.style.position = 'absolute';
+        piece.style.width = Math.random() * 10 + 5 + 'px';
+        piece.style.height = piece.style.width;
+        piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+        piece.style.left = Math.random() * 100 + '%';
+        piece.style.top = '-10px';
+        piece.style.opacity = Math.random();
+        piece.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+        piece.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+        confettiContainer.appendChild(piece);
+      }
+    }
+
+    // CSS для конфетти
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fall {
+        to {
+          top: 100vh;
+          transform: translateX(${(Math.random() - 0.5) * 100}px) rotate(720deg);
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Запуск при загрузке
+    window.addEventListener('load', launchConfetti);
+
+    // Кнопка "ещё"
+    document.getElementById('moreBtn').addEventListener('click', () => {
+      document.getElementById('final').classList.remove('hidden');
+      document.getElementById('moreBtn').style.display = 'none';
+      launchConfetti(); // ещё раз!
+    });
+  </script>
+
+</body>
+</html>
